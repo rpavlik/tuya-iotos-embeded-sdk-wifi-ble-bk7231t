@@ -4,8 +4,10 @@ TOP_DIR = ../../..
 # -------------------------------------------------------------------
 ifeq ($(shell uname), Linux)
   TOOLCHAIN_DIR := ../toolchain
+  FIND := find
 else
   TOOLCHAIN_DIR := ../toolchain/windows
+  FIND := busybox find
 endif
 ARM_GCC_TOOLCHAIN = $(TOOLCHAIN_DIR)/gcc-arm-none-eabi-4_9-2015q1/bin
 
@@ -588,8 +590,8 @@ CFLAGS += -DUSER_SW_VER=\"$(USER_SW_VER)\" -DAPP_BIN_NAME=\"$(APP_BIN_NAME)\"
 APP_MK_NAME := $(TOP_DIR)/apps/$(APP_BIN_NAME)/components.mk
 ifeq ($(APP_MK_NAME), $(wildcard $(APP_MK_NAME)))
 sinclude $(APP_MK_NAME)
-TY_SRC_DIRS += $(foreach n, $(COMPONENTS), $(shell find $(TOP_DIR)/components/$(n)/src -type d))
-TY_INC_DIRS += $(foreach n, $(COMPONENTS), $(shell find $(TOP_DIR)/components/$(n)/include -type d))
+TY_SRC_DIRS += $(foreach n, $(COMPONENTS), $(shell $(FIND) $(TOP_DIR)/components/$(n)/src -type d))
+TY_INC_DIRS += $(foreach n, $(COMPONENTS), $(shell $(FIND) $(TOP_DIR)/components/$(n)/include -type d))
 endif
 
 # -------------------------------------------------------------------
@@ -597,22 +599,22 @@ endif
 # -------------------------------------------------------------------
 TY_OUTPUT = $(TOP_DIR)/apps/$(APP_BIN_NAME)/output/$(APP_VERSION)
 
-TY_SRC_DIRS += $(shell find ../tuya_common/src -type d)
-TY_SRC_DIRS += $(shell find $(TOP_DIR)/apps/$(APP_BIN_NAME)/src -type d)
-TY_SRC_DIRS += $(shell find ../tuya_os_adapter/src -type d)
+TY_SRC_DIRS += $(shell $(FIND) ../tuya_common/src -type d)
+TY_SRC_DIRS += $(shell $(FIND) $(TOP_DIR)/apps/$(APP_BIN_NAME)/src -type d)
+TY_SRC_DIRS += $(shell $(FIND) ../tuya_os_adapter/src -type d)
 
 SRC_C += $(foreach dir, $(TY_SRC_DIRS), $(wildcard $(dir)/*.c)) # need export
 SRC_C += $(foreach dir, $(TY_SRC_DIRS), $(wildcard $(dir)/*.cpp)) 
 SRC_C += $(foreach dir, $(TY_SRC_DIRS), $(wildcard $(dir)/*.s)) 
 SRC_C += $(foreach dir, $(TY_SRC_DIRS), $(wildcard $(dir)/*.S)) 
 
-#TY_INC_DIRS += $(shell find $(TOP_DIR)/sdk -type d)
-SDK_INCLUDE_DIRS := $(shell find $(TOP_DIR)/sdk -name include -type d)
-TY_INC_DIRS += $(foreach dir,$(SDK_INCLUDE_DIRS),$(shell find $(dir) -type d))
+#TY_INC_DIRS += $(shell $(FIND) $(TOP_DIR)/sdk -type d)
+SDK_INCLUDE_DIRS := $(shell $(FIND) $(TOP_DIR)/sdk -name include -type d)
+TY_INC_DIRS += $(foreach dir,$(SDK_INCLUDE_DIRS),$(shell $(FIND) $(dir) -type d))
 
-TY_INC_DIRS += $(shell find ../tuya_os_adapter/include -type d)
-TY_INC_DIRS += $(shell find ../tuya_common/include -type d)
-TY_INC_DIRS += $(shell find $(TOP_DIR)/apps/$(APP_BIN_NAME)/include -type d)
+TY_INC_DIRS += $(shell $(FIND) ../tuya_os_adapter/include -type d)
+TY_INC_DIRS += $(shell $(FIND) ../tuya_common/include -type d)
+TY_INC_DIRS += $(shell $(FIND) $(TOP_DIR)/apps/$(APP_BIN_NAME)/include -type d)
 
 INCLUDES += $(foreach base_dir, $(TY_INC_DIRS), $(addprefix -I , $(base_dir))) 
 
