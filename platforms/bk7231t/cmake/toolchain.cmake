@@ -37,7 +37,7 @@ set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
 
-set(CMAKE_C_FLAGS_INIT   " -mcpu=arm968e-s -march=armv5te -mthumb-interwork -mlittle-endian -ffunction-sections -fsigned-char -fdata-sections")
+set(CMAKE_C_FLAGS_INIT   " -mcpu=arm968e-s -march=armv5te -mthumb-interwork -mlittle-endian -ffunction-sections -fsigned-char -fdata-sections -std=c99")
 set(CMAKE_CXX_FLAGS_INIT " -mcpu=arm968e-s -march=armv5te -mthumb-interwork -mlittle-endian -ffunction-sections -fsigned-char -fdata-sections")
 set(CMAKE_ASM_FLAGS_INIT "  -marm -mcpu=arm968e-s -march=armv5te -mthumb-interwork -x assembler-with-cpp")
 set(CMAKE_C_LINK_FLAGS   "-Wl,--gc-sections -marm -mcpu=arm968e-s -mthumb-interwork -nostdlib -Wl,-wrap,malloc -Wl,-wrap,free -Wl,-wrap,zalloc")
