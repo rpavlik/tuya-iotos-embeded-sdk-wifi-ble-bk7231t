@@ -2,11 +2,12 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-add_library(tuya_iot_includes INTERFACE)
-target_include_directories(tuya_iot_includes INTERFACE SYSTEM include)
+add_library(tuya::tuya_iot_includes INTERFACE IMPORTED GLOBAL)
+target_include_directories(tuya::tuya_iot_includes SYSTEM INTERFACE include)
 
-add_library(tuya_iot IMPORTED STATIC)
-set_target_properties(tuya_iot PROPERTIES
-    IMPORTED_LOCATION ${CMAKE_CURRENT_LIST_DIR}/lib/libtuya_iot.a)
-# target_include_directories(tuya_iot INTERFACE SYSTEM include)
-target_link_libraries(tuya_iot INTERFACE tuya_iot_includes)
+add_library(tuya::tuya_iot STATIC IMPORTED GLOBAL)
+set_target_properties(tuya::tuya_iot PROPERTIES
+    IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/lib/libtuya_iot.a
+    INTERFACE_LINK_LIBRARIES tuya::tuya_iot_includes)
+target_include_directories(tuya::tuya_iot SYSTEM INTERFACE include)
+# target_link_libraries(tuya_iot INTERFACE tuya_iot_includes)

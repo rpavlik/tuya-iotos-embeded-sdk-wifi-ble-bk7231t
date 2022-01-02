@@ -216,9 +216,18 @@ add_library(beken378 STATIC
     driver/entry/boot_handlers.S
     driver/entry/boot_vectors.S)
 target_compile_options(beken378 PRIVATE -mthumb)
-target_link_libraries(beken378 PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/lib/libble.a
-    ${CMAKE_CURRENT_SOURCE_DIR}/lib/librwnx.a)
+
+# if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lib/libble.a)
+#     add_library(ble IMPORTED STATIC)
+#     set_target_properties(ble PROPERTIES
+#         IMPORTED_LOCATION lib/libble.a)
+# endif()
+# if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lib/librwnx.a)
+#     add_library(rwnx IMPORTED STATIC)
+#     set_target_properties(ble PROPERTIES
+#         IMPORTED_LOCATION lib/librwnx.a)
+# endif()
+target_link_libraries(beken378 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/lib/libble.a ${CMAKE_CURRENT_SOURCE_DIR}/lib/librwnx.a)
 # target_compile_features(beken378 PUBLIC c_std_99)
 target_include_directories(beken378 PUBLIC SYSTEM
     common
