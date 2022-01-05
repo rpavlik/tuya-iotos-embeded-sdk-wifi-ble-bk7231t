@@ -38,7 +38,8 @@ target_compile_options({{name}} PRIVATE -mthumb)
 # target_link_libraries({{name}} PRIVATE)
 {% endblock %}
 {% block features %}
-target_compile_features({{name}} PUBLIC c_std_99)
+# target_compile_features({{name}} PUBLIC c_std_99)
+set_target_properties({{name}} PROPERTIES C_STANDARD 99)
 {% endblock %}
 
 {% block includes %}

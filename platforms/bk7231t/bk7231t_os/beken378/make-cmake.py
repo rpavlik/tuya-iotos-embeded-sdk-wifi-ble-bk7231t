@@ -52,7 +52,7 @@ class Module:
 
     def get_child_directories(self, all_modules: List["Module"]) -> List[str]:
         return [
-            str(mod.path.stem) for mod in all_modules if mod.path.parent == self.path
+            str(mod.path.name) for mod in all_modules if mod.path.parent == self.path
         ]
 
     @property
@@ -82,7 +82,9 @@ class Module:
         sources: List[str] = []
         for g in self.source_globs:
             sources.extend(
-                str(x.relative_to(d)) for x in glob(g) if x not in self.exclude
+                str(x.relative_to(d)).replace("\\", "/")
+                for x in glob(g)
+                if x not in self.exclude
             )
         sources.sort()
 
@@ -90,7 +92,11 @@ class Module:
             data["sources"] = sources
 
         headers = list(
-            sorted(str(x.relative_to(d)) for x in glob("*.h") if x not in self.exclude)
+            sorted(
+                str(x.relative_to(d)).replace("\\", "/")
+                for x in glob("*.h")
+                if x not in self.exclude
+            )
         )
         if headers:
             data["headers"] = headers
@@ -169,7 +175,9 @@ class CMaker:
 
     def run(self):
         self.modules = [
+            Module(self.root / "app", recurse=False),
             Module(self.root / "common"),
+            Module(self.root / "driver", recurse=False),
             Module(self.root / "os", recurse=False),
             Module(
                 self.root / "os" / "FreeRTOSv9.0.0",
@@ -188,9 +196,22 @@ class CMaker:
             ),
             Module(self.root / "func", recurse=False),
         ]
-        for d in (self.root / "func").iterdir():
-            if not d.is_dir(): continue
-            if d.name == "include": continue
+
+        dirs_with_subdirs = (
+            self.root / "func",
+            self.root / "driver",
+            self.root / "app",
+        )
+        for dirname in dirs_with_subdirs:
+            self.handle_dir(dirname, recurse_sources=False)
+
+            for d in dirname.iterdir():
+                if not d.is_dir():
+                    continue
+                if d.name == "include":
+                    continue
+                self.handle_dir(d, recurse_sources=True)
+
             self.handle_dir(d)
         for mod in self.modules:
             self.render_module(mod)
