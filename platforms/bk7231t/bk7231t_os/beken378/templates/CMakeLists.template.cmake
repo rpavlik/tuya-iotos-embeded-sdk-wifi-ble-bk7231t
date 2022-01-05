@@ -2,13 +2,14 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-{% block whole_build %}
 ### Generated file! Edit the templates in templates,
 ### specifically templates/{{template}},
 {% if assumed_custom_template_name -%}
 ### or create a derived template in templates/{{assumed_custom_template_name}},
 {% endif -%}
 ### then re-run ./make-cmake.py
+
+{% block whole_build %}
 {% block children %}
 {% for child in children %}
 add_subdirectory({{child}})
@@ -28,14 +29,20 @@ add_library({{name}} STATIC
 )
 {% endblock add_target %}
 
+{% block compile_options %}
 {% if arm %}
 target_compile_options({{name}} PRIVATE -marm)
 {% else %}
 target_compile_options({{name}} PRIVATE -mthumb)
 {% endif %}
-{% endblock %}
+{% endblock compile_options %}
+
 {% block linking %}
-# target_link_libraries({{name}} PRIVATE)
+target_link_libraries({{name}}
+    PUBLIC
+    beken378_common{% if public_libs %}
+    {{ public_libs | join('\n') | indent(4) }}
+{% endif %})
 {% endblock %}
 {% block features %}
 # target_compile_features({{name}} PUBLIC c_std_99)
@@ -60,4 +67,6 @@ target_include_directories({{name}}
 )
 {% endif %}
 
-{% endblock %}
+{% endblock includes %}
+
+{% endblock whole_build %}

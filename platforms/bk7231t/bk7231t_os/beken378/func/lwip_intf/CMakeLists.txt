@@ -1,0 +1,333 @@
+# Copyright 2021, Ryan Pavlik <ryan.pavlik@gmail.com>
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+### Generated file! Edit the templates in templates,
+### specifically templates/CMakeLists.template.cmake (shared with all other directories),
+### or create a derived template in templates/beken378_func_lwip_intf.cmake,
+### then re-run ./make-cmake.py
+
+
+
+
+
+
+
+add_library(beken378_func_lwip_intf STATIC
+
+
+    dhcpd/dhcp-bootp.h
+    dhcpd/dhcp-priv.h
+    dhcpd/dns.h
+    lwip-2.0.2/doc/doxygen/main_page.h
+    lwip-2.0.2/port/arch/cc.h
+    lwip-2.0.2/port/arch/sys_arch.h
+    lwip-2.0.2/port/ethernetif.h
+    lwip-2.0.2/port/lwip_intf.h
+    lwip-2.0.2/port/lwip_netif_address.h
+    lwip-2.0.2/port/lwipopts.h
+    lwip-2.0.2/port/net.h
+    lwip-2.0.2/src/apps/httpd/fsdata.h
+    lwip-2.0.2/src/apps/httpd/httpd_structs.h
+    lwip-2.0.2/src/apps/snmp/snmp_asn1.h
+    lwip-2.0.2/src/apps/snmp/snmp_core_priv.h
+    lwip-2.0.2/src/apps/snmp/snmp_msg.h
+    lwip-2.0.2/src/apps/snmp/snmp_pbuf_stream.h
+    lwip-2.0.2/src/apps/snmp/snmpv3_priv.h
+    lwip-2.0.2/src/include/lwip/api.h
+    lwip-2.0.2/src/include/lwip/apps/fs.h
+    lwip-2.0.2/src/include/lwip/apps/httpd.h
+    lwip-2.0.2/src/include/lwip/apps/httpd_opts.h
+    lwip-2.0.2/src/include/lwip/apps/lwiperf.h
+    lwip-2.0.2/src/include/lwip/apps/mdns.h
+    lwip-2.0.2/src/include/lwip/apps/mdns_opts.h
+    lwip-2.0.2/src/include/lwip/apps/mdns_priv.h
+    lwip-2.0.2/src/include/lwip/apps/mqtt.h
+    lwip-2.0.2/src/include/lwip/apps/mqtt_opts.h
+    lwip-2.0.2/src/include/lwip/apps/netbiosns.h
+    lwip-2.0.2/src/include/lwip/apps/netbiosns_opts.h
+    lwip-2.0.2/src/include/lwip/apps/snmp.h
+    lwip-2.0.2/src/include/lwip/apps/snmp_core.h
+    lwip-2.0.2/src/include/lwip/apps/snmp_mib2.h
+    lwip-2.0.2/src/include/lwip/apps/snmp_opts.h
+    lwip-2.0.2/src/include/lwip/apps/snmp_scalar.h
+    lwip-2.0.2/src/include/lwip/apps/snmp_table.h
+    lwip-2.0.2/src/include/lwip/apps/snmp_threadsync.h
+    lwip-2.0.2/src/include/lwip/apps/snmpv3.h
+    lwip-2.0.2/src/include/lwip/apps/sntp.h
+    lwip-2.0.2/src/include/lwip/apps/sntp_opts.h
+    lwip-2.0.2/src/include/lwip/apps/tftp_opts.h
+    lwip-2.0.2/src/include/lwip/apps/tftp_server.h
+    lwip-2.0.2/src/include/lwip/arch.h
+    lwip-2.0.2/src/include/lwip/autoip.h
+    lwip-2.0.2/src/include/lwip/debug.h
+    lwip-2.0.2/src/include/lwip/def.h
+    lwip-2.0.2/src/include/lwip/dhcp.h
+    lwip-2.0.2/src/include/lwip/dhcp6.h
+    lwip-2.0.2/src/include/lwip/dns.h
+    lwip-2.0.2/src/include/lwip/err.h
+    lwip-2.0.2/src/include/lwip/errno.h
+    lwip-2.0.2/src/include/lwip/etharp.h
+    lwip-2.0.2/src/include/lwip/ethip6.h
+    lwip-2.0.2/src/include/lwip/icmp.h
+    lwip-2.0.2/src/include/lwip/icmp6.h
+    lwip-2.0.2/src/include/lwip/igmp.h
+    lwip-2.0.2/src/include/lwip/inet.h
+    lwip-2.0.2/src/include/lwip/inet_chksum.h
+    lwip-2.0.2/src/include/lwip/init.h
+    lwip-2.0.2/src/include/lwip/ip.h
+    lwip-2.0.2/src/include/lwip/ip4.h
+    lwip-2.0.2/src/include/lwip/ip4_addr.h
+    lwip-2.0.2/src/include/lwip/ip4_frag.h
+    lwip-2.0.2/src/include/lwip/ip6.h
+    lwip-2.0.2/src/include/lwip/ip6_addr.h
+    lwip-2.0.2/src/include/lwip/ip6_frag.h
+    lwip-2.0.2/src/include/lwip/ip_addr.h
+    lwip-2.0.2/src/include/lwip/mem.h
+    lwip-2.0.2/src/include/lwip/memp.h
+    lwip-2.0.2/src/include/lwip/mld6.h
+    lwip-2.0.2/src/include/lwip/nd6.h
+    lwip-2.0.2/src/include/lwip/netbuf.h
+    lwip-2.0.2/src/include/lwip/netdb.h
+    lwip-2.0.2/src/include/lwip/netif.h
+    lwip-2.0.2/src/include/lwip/netifapi.h
+    lwip-2.0.2/src/include/lwip/opt.h
+    lwip-2.0.2/src/include/lwip/pbuf.h
+    lwip-2.0.2/src/include/lwip/priv/api_msg.h
+    lwip-2.0.2/src/include/lwip/priv/memp_priv.h
+    lwip-2.0.2/src/include/lwip/priv/memp_std.h
+    lwip-2.0.2/src/include/lwip/priv/nd6_priv.h
+    lwip-2.0.2/src/include/lwip/priv/tcp_priv.h
+    lwip-2.0.2/src/include/lwip/priv/tcpip_priv.h
+    lwip-2.0.2/src/include/lwip/prot/autoip.h
+    lwip-2.0.2/src/include/lwip/prot/dhcp.h
+    lwip-2.0.2/src/include/lwip/prot/dns.h
+    lwip-2.0.2/src/include/lwip/prot/etharp.h
+    lwip-2.0.2/src/include/lwip/prot/ethernet.h
+    lwip-2.0.2/src/include/lwip/prot/icmp.h
+    lwip-2.0.2/src/include/lwip/prot/icmp6.h
+    lwip-2.0.2/src/include/lwip/prot/igmp.h
+    lwip-2.0.2/src/include/lwip/prot/ip.h
+    lwip-2.0.2/src/include/lwip/prot/ip4.h
+    lwip-2.0.2/src/include/lwip/prot/ip6.h
+    lwip-2.0.2/src/include/lwip/prot/mld6.h
+    lwip-2.0.2/src/include/lwip/prot/nd6.h
+    lwip-2.0.2/src/include/lwip/prot/tcp.h
+    lwip-2.0.2/src/include/lwip/prot/udp.h
+    lwip-2.0.2/src/include/lwip/raw.h
+    lwip-2.0.2/src/include/lwip/sio.h
+    lwip-2.0.2/src/include/lwip/snmp.h
+    lwip-2.0.2/src/include/lwip/sockets.h
+    lwip-2.0.2/src/include/lwip/stats.h
+    lwip-2.0.2/src/include/lwip/sys.h
+    lwip-2.0.2/src/include/lwip/tcp.h
+    lwip-2.0.2/src/include/lwip/tcpip.h
+    lwip-2.0.2/src/include/lwip/timeouts.h
+    lwip-2.0.2/src/include/lwip/udp.h
+    lwip-2.0.2/src/include/netif/etharp.h
+    lwip-2.0.2/src/include/netif/ethernet.h
+    lwip-2.0.2/src/include/netif/lowpan6.h
+    lwip-2.0.2/src/include/netif/lowpan6_opts.h
+    lwip-2.0.2/src/include/netif/ppp/ccp.h
+    lwip-2.0.2/src/include/netif/ppp/chap-md5.h
+    lwip-2.0.2/src/include/netif/ppp/chap-new.h
+    lwip-2.0.2/src/include/netif/ppp/chap_ms.h
+    lwip-2.0.2/src/include/netif/ppp/eap.h
+    lwip-2.0.2/src/include/netif/ppp/ecp.h
+    lwip-2.0.2/src/include/netif/ppp/eui64.h
+    lwip-2.0.2/src/include/netif/ppp/fsm.h
+    lwip-2.0.2/src/include/netif/ppp/ipcp.h
+    lwip-2.0.2/src/include/netif/ppp/ipv6cp.h
+    lwip-2.0.2/src/include/netif/ppp/lcp.h
+    lwip-2.0.2/src/include/netif/ppp/magic.h
+    lwip-2.0.2/src/include/netif/ppp/mppe.h
+    lwip-2.0.2/src/include/netif/ppp/polarssl/arc4.h
+    lwip-2.0.2/src/include/netif/ppp/polarssl/des.h
+    lwip-2.0.2/src/include/netif/ppp/polarssl/md4.h
+    lwip-2.0.2/src/include/netif/ppp/polarssl/md5.h
+    lwip-2.0.2/src/include/netif/ppp/polarssl/sha1.h
+    lwip-2.0.2/src/include/netif/ppp/ppp.h
+    lwip-2.0.2/src/include/netif/ppp/ppp_impl.h
+    lwip-2.0.2/src/include/netif/ppp/ppp_opts.h
+    lwip-2.0.2/src/include/netif/ppp/pppapi.h
+    lwip-2.0.2/src/include/netif/ppp/pppcrypt.h
+    lwip-2.0.2/src/include/netif/ppp/pppdebug.h
+    lwip-2.0.2/src/include/netif/ppp/pppoe.h
+    lwip-2.0.2/src/include/netif/ppp/pppol2tp.h
+    lwip-2.0.2/src/include/netif/ppp/pppos.h
+    lwip-2.0.2/src/include/netif/ppp/upap.h
+    lwip-2.0.2/src/include/netif/ppp/vj.h
+    lwip-2.0.2/src/include/netif/slipif.h
+    lwip-2.0.2/src/include/posix/errno.h
+    lwip-2.0.2/src/include/posix/netdb.h
+    lwip-2.0.2/src/include/posix/sys/socket.h
+    lwip-2.0.2/test/fuzz/config.h
+    lwip-2.0.2/test/fuzz/lwipopts.h
+    lwip-2.0.2/test/unit/core/test_mem.h
+    lwip-2.0.2/test/unit/core/test_pbuf.h
+    lwip-2.0.2/test/unit/dhcp/test_dhcp.h
+    lwip-2.0.2/test/unit/etharp/test_etharp.h
+    lwip-2.0.2/test/unit/lwip_check.h
+    lwip-2.0.2/test/unit/lwipopts.h
+    lwip-2.0.2/test/unit/mdns/test_mdns.h
+    lwip-2.0.2/test/unit/tcp/tcp_helper.h
+    lwip-2.0.2/test/unit/tcp/test_tcp.h
+    lwip-2.0.2/test/unit/tcp/test_tcp_oos.h
+    lwip-2.0.2/test/unit/udp/test_udp.h
+
+
+
+    dhcpd/dhcp-server-main.c
+    dhcpd/dhcp-server.c
+    lwip-2.0.2/doc/NO_SYS_SampleCode.c
+    lwip-2.0.2/port/ethernetif.c
+    lwip-2.0.2/port/net.c
+    lwip-2.0.2/port/sys_arch.c
+    lwip-2.0.2/src/api/api_lib.c
+    lwip-2.0.2/src/api/api_msg.c
+    lwip-2.0.2/src/api/err.c
+    lwip-2.0.2/src/api/netbuf.c
+    lwip-2.0.2/src/api/netdb.c
+    lwip-2.0.2/src/api/netifapi.c
+    lwip-2.0.2/src/api/sockets.c
+    lwip-2.0.2/src/api/tcpip.c
+    lwip-2.0.2/src/apps/httpd/fs.c
+    lwip-2.0.2/src/apps/httpd/fsdata.c
+    lwip-2.0.2/src/apps/httpd/httpd.c
+    lwip-2.0.2/src/apps/httpd/makefsdata/makefsdata.c
+    lwip-2.0.2/src/apps/lwiperf/lwiperf.c
+    lwip-2.0.2/src/apps/mdns/mdns.c
+    lwip-2.0.2/src/apps/mqtt/mqtt.c
+    lwip-2.0.2/src/apps/netbiosns/netbiosns.c
+    lwip-2.0.2/src/apps/snmp/snmp_asn1.c
+    lwip-2.0.2/src/apps/snmp/snmp_core.c
+    lwip-2.0.2/src/apps/snmp/snmp_mib2.c
+    lwip-2.0.2/src/apps/snmp/snmp_mib2_icmp.c
+    lwip-2.0.2/src/apps/snmp/snmp_mib2_interfaces.c
+    lwip-2.0.2/src/apps/snmp/snmp_mib2_ip.c
+    lwip-2.0.2/src/apps/snmp/snmp_mib2_snmp.c
+    lwip-2.0.2/src/apps/snmp/snmp_mib2_system.c
+    lwip-2.0.2/src/apps/snmp/snmp_mib2_tcp.c
+    lwip-2.0.2/src/apps/snmp/snmp_mib2_udp.c
+    lwip-2.0.2/src/apps/snmp/snmp_msg.c
+    lwip-2.0.2/src/apps/snmp/snmp_netconn.c
+    lwip-2.0.2/src/apps/snmp/snmp_pbuf_stream.c
+    lwip-2.0.2/src/apps/snmp/snmp_raw.c
+    lwip-2.0.2/src/apps/snmp/snmp_scalar.c
+    lwip-2.0.2/src/apps/snmp/snmp_table.c
+    lwip-2.0.2/src/apps/snmp/snmp_threadsync.c
+    lwip-2.0.2/src/apps/snmp/snmp_traps.c
+    lwip-2.0.2/src/apps/snmp/snmpv3.c
+    lwip-2.0.2/src/apps/snmp/snmpv3_dummy.c
+    lwip-2.0.2/src/apps/snmp/snmpv3_mbedtls.c
+    lwip-2.0.2/src/apps/sntp/sntp.c
+    lwip-2.0.2/src/apps/tftp/tftp_server.c
+    lwip-2.0.2/src/core/def.c
+    lwip-2.0.2/src/core/dns.c
+    lwip-2.0.2/src/core/inet_chksum.c
+    lwip-2.0.2/src/core/init.c
+    lwip-2.0.2/src/core/ip.c
+    lwip-2.0.2/src/core/ipv4/autoip.c
+    lwip-2.0.2/src/core/ipv4/dhcp.c
+    lwip-2.0.2/src/core/ipv4/etharp.c
+    lwip-2.0.2/src/core/ipv4/icmp.c
+    lwip-2.0.2/src/core/ipv4/igmp.c
+    lwip-2.0.2/src/core/ipv4/ip4.c
+    lwip-2.0.2/src/core/ipv4/ip4_addr.c
+    lwip-2.0.2/src/core/ipv4/ip4_frag.c
+    lwip-2.0.2/src/core/ipv6/dhcp6.c
+    lwip-2.0.2/src/core/ipv6/ethip6.c
+    lwip-2.0.2/src/core/ipv6/icmp6.c
+    lwip-2.0.2/src/core/ipv6/inet6.c
+    lwip-2.0.2/src/core/ipv6/ip6.c
+    lwip-2.0.2/src/core/ipv6/ip6_addr.c
+    lwip-2.0.2/src/core/ipv6/ip6_frag.c
+    lwip-2.0.2/src/core/ipv6/mld6.c
+    lwip-2.0.2/src/core/ipv6/nd6.c
+    lwip-2.0.2/src/core/mem.c
+    lwip-2.0.2/src/core/memp.c
+    lwip-2.0.2/src/core/netif.c
+    lwip-2.0.2/src/core/pbuf.c
+    lwip-2.0.2/src/core/raw.c
+    lwip-2.0.2/src/core/stats.c
+    lwip-2.0.2/src/core/sys.c
+    lwip-2.0.2/src/core/tcp.c
+    lwip-2.0.2/src/core/tcp_in.c
+    lwip-2.0.2/src/core/tcp_out.c
+    lwip-2.0.2/src/core/timeouts.c
+    lwip-2.0.2/src/core/udp.c
+    lwip-2.0.2/src/netif/ethernet.c
+    lwip-2.0.2/src/netif/ethernetif.c
+    lwip-2.0.2/src/netif/lowpan6.c
+    lwip-2.0.2/src/netif/ppp/auth.c
+    lwip-2.0.2/src/netif/ppp/ccp.c
+    lwip-2.0.2/src/netif/ppp/chap-md5.c
+    lwip-2.0.2/src/netif/ppp/chap-new.c
+    lwip-2.0.2/src/netif/ppp/chap_ms.c
+    lwip-2.0.2/src/netif/ppp/demand.c
+    lwip-2.0.2/src/netif/ppp/eap.c
+    lwip-2.0.2/src/netif/ppp/ecp.c
+    lwip-2.0.2/src/netif/ppp/eui64.c
+    lwip-2.0.2/src/netif/ppp/fsm.c
+    lwip-2.0.2/src/netif/ppp/ipcp.c
+    lwip-2.0.2/src/netif/ppp/ipv6cp.c
+    lwip-2.0.2/src/netif/ppp/lcp.c
+    lwip-2.0.2/src/netif/ppp/magic.c
+    lwip-2.0.2/src/netif/ppp/mppe.c
+    lwip-2.0.2/src/netif/ppp/multilink.c
+    lwip-2.0.2/src/netif/ppp/polarssl/arc4.c
+    lwip-2.0.2/src/netif/ppp/polarssl/des.c
+    lwip-2.0.2/src/netif/ppp/polarssl/md4.c
+    lwip-2.0.2/src/netif/ppp/polarssl/md5.c
+    lwip-2.0.2/src/netif/ppp/polarssl/sha1.c
+    lwip-2.0.2/src/netif/ppp/ppp.c
+    lwip-2.0.2/src/netif/ppp/pppapi.c
+    lwip-2.0.2/src/netif/ppp/pppcrypt.c
+    lwip-2.0.2/src/netif/ppp/pppoe.c
+    lwip-2.0.2/src/netif/ppp/pppol2tp.c
+    lwip-2.0.2/src/netif/ppp/pppos.c
+    lwip-2.0.2/src/netif/ppp/upap.c
+    lwip-2.0.2/src/netif/ppp/utils.c
+    lwip-2.0.2/src/netif/ppp/vj.c
+    lwip-2.0.2/src/netif/slipif.c
+    lwip-2.0.2/test/fuzz/fuzz.c
+    lwip-2.0.2/test/unit/core/test_mem.c
+    lwip-2.0.2/test/unit/core/test_pbuf.c
+    lwip-2.0.2/test/unit/dhcp/test_dhcp.c
+    lwip-2.0.2/test/unit/etharp/test_etharp.c
+    lwip-2.0.2/test/unit/lwip_unittests.c
+    lwip-2.0.2/test/unit/mdns/test_mdns.c
+    lwip-2.0.2/test/unit/tcp/tcp_helper.c
+    lwip-2.0.2/test/unit/tcp/test_tcp.c
+    lwip-2.0.2/test/unit/tcp/test_tcp_oos.c
+    lwip-2.0.2/test/unit/udp/test_udp.c
+    platform_stub.c
+    tcp_server.c
+
+)
+
+
+
+
+target_compile_options(beken378_func_lwip_intf PRIVATE -mthumb)
+
+
+
+
+target_link_libraries(beken378_func_lwip_intf
+    PUBLIC
+    beken378_common
+    beken378_func_include
+)
+
+
+# target_compile_features(beken378_func_lwip_intf PUBLIC c_std_99)
+set_target_properties(beken378_func_lwip_intf PROPERTIES C_STANDARD 99)
+
+
+
+
+
+
+
+

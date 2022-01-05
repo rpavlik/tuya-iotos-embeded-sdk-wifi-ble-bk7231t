@@ -1,0 +1,189 @@
+# Copyright 2021, Ryan Pavlik <ryan.pavlik@gmail.com>
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+### Generated file! Edit the templates in templates,
+### specifically templates/CMakeLists.template.cmake (shared with all other directories),
+### or create a derived template in templates/beken378_driver_usb.cmake,
+### then re-run ./make-cmake.py
+
+
+
+
+
+
+
+add_library(beken378_driver_usb STATIC
+
+
+    include/class/mu_8070i.h
+    include/class/mu_aud.h
+    include/class/mu_bot.h
+    include/class/mu_ccd.h
+    include/class/mu_dfu.h
+    include/class/mu_dsc.h
+    include/class/mu_hid.h
+    include/class/mu_hub.h
+    include/class/mu_msd.h
+    include/class/mu_ptp.h
+    include/class/mu_scsi.h
+    include/class/mu_trans.h
+    include/class/mu_tstdv.h
+    include/mu_arch.h
+    include/mu_bits.h
+    include/mu_cdi.h
+    include/mu_cis.h
+    include/mu_dci.h
+    include/mu_descs.h
+    include/mu_dev.h
+    include/mu_diag.h
+    include/mu_dsi.h
+    include/mu_edi.h
+    include/mu_ghi.h
+    include/mu_hfi.h
+    include/mu_hset.h
+    include/mu_iti.h
+    include/mu_kii.h
+    include/mu_list.h
+    include/mu_lmi.h
+    include/mu_mem.h
+    include/mu_nci.h
+    include/mu_pkoff.h
+    include/mu_pkon.h
+    include/mu_ramfl.h
+    include/mu_spi.h
+    include/mu_stack.h
+    include/mu_stat.h
+    include/mu_stdio.h
+    include/mu_strng.h
+    include/mu_tools.h
+    include/mu_tti.h
+    src/cd/mu_cntlr.h
+    src/cd/mu_drcdf.h
+    src/cd/mu_drcpr.h
+    src/cd/mu_fadcf.h
+    src/cd/mu_fdrdf.h
+    src/cd/mu_fdrpr.h
+    src/cd/mu_funpr.h
+    src/cd/mu_hdrdf.h
+    src/cd/mu_hdrpr.h
+    src/cd/mu_hfcdf.h
+    src/cd/mu_hfcpr.h
+    src/cd/mu_hsdcf.h
+    src/cd/mu_hstpr.h
+    src/cd/mu_impl.h
+    src/cd/mu_mdrdf.h
+    src/cd/mu_mdrpr.h
+    src/cd/mu_pippr.h
+    src/drivers/comm/mu_comif.h
+    src/drivers/compl/mu_capi.h
+    src/drivers/compl/mu_ccore.h
+    src/drivers/compl/mu_cmain.h
+    src/drivers/hid/mu_hidif.h
+    src/drivers/hub/mu_hapi.h
+    src/drivers/hub/mu_hcore.h
+    src/drivers/hub/mu_hcreq.h
+    src/drivers/hub/mu_hdef.h
+    src/drivers/msd/mu_mapi.h
+    src/drivers/msd/mu_mpcsi.h
+    src/drivers/trans/mu_tapi.h
+    src/examples/mu_cli.h
+    src/examples/mu_clict.h
+    src/examples/mu_demo.h
+    src/hid/usb_hid.h
+    src/msc/usb_msd.h
+    src/systems/none/afs/board.h
+    src/systems/none/afs/brd_arch.h
+    src/systems/none/afs/brd_cnf.h
+    src/systems/none/afs/brd_mem.h
+    src/systems/none/afs/hdrc_cnf.h
+    src/systems/none/mu_none.h
+    src/systems/none/plat_arc.h
+    src/systems/none/plat_cnf.h
+    src/systems/none/plat_mem.h
+    src/test/cbs/mu_cbs.h
+    src/test/compl/tst_cdev.h
+    src/test/hub/mu_htcfg.h
+    src/test/hub/mu_htest.h
+    src/test/plat_arc.h
+    src/test/tst_prot.h
+    src/uvc/usb_uvc.h
+    src/uvc/usb_video.h
+    src/uvc/uvc_driver.h
+    usb.h
+
+
+
+    src/cd/mu_cntlr.c
+    src/cd/mu_descs.c
+    src/cd/mu_drc.c
+    src/cd/mu_fc.c
+    src/cd/mu_fdr.c
+    src/cd/mu_fun.c
+    src/cd/mu_funex.c
+    src/cd/mu_hc.c
+    src/cd/mu_hdr.c
+    src/cd/mu_hsdma.c
+    src/cd/mu_hst.c
+    src/cd/mu_list.c
+    src/cd/mu_mdr.c
+    src/cd/mu_pip.c
+    src/drivers/comm/mu_comif.c
+    src/drivers/hid/mu_hidif.c
+    src/drivers/hid/mu_hidkb.c
+    src/drivers/hid/mu_hidmb.c
+    src/drivers/msd/mu_mapi.c
+    src/drivers/msd/mu_mbot.c
+    src/drivers/msd/mu_mscsi.c
+    src/examples/msd/mu_msdfn.c
+    src/hid/usb_hid.c
+    src/lib/mu_bits.c
+    src/lib/mu_stack.c
+    src/lib/mu_stdio.c
+    src/lib/mu_strng.c
+    src/msc/usb_msd.c
+    src/systems/none/afs/board.c
+    src/systems/none/plat_uds.c
+    src/uvc/usb_uvc.c
+    src/uvc/uvc_driver.c
+    usb.c
+
+)
+
+
+
+
+target_compile_options(beken378_driver_usb PRIVATE -mthumb)
+
+
+
+
+target_link_libraries(beken378_driver_usb
+    PUBLIC
+    beken378_common
+    beken378_driver_include
+)
+
+
+# target_compile_features(beken378_driver_usb PUBLIC c_std_99)
+set_target_properties(beken378_driver_usb PROPERTIES C_STANDARD 99)
+
+
+
+
+target_include_directories(beken378_driver_usb
+
+
+    PUBLIC SYSTEM
+    include
+
+
+
+
+
+)
+
+
+
+
+

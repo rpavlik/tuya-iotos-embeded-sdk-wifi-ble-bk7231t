@@ -1,0 +1,258 @@
+
+
+# Copyright 2021, Ryan Pavlik <ryan.pavlik@gmail.com>
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+### Generated file! Edit the templates in templates,
+### specifically templates/beken378_driver_ble.cmake (custom for this directory),
+### then re-run ./make-cmake.py
+
+
+
+
+
+
+
+add_library(beken378_driver_ble STATIC
+
+
+    ble.h
+    ble_lib/ip/ahi/api/ahi.h
+    ble_lib/ip/ahi/api/ahi_task.h
+    ble_lib/ip/ble/hl/api/att.h
+    ble_lib/ip/ble/hl/api/gap.h
+    ble_lib/ip/ble/hl/api/gapc_task.h
+    ble_lib/ip/ble/hl/api/gapm_task.h
+    ble_lib/ip/ble/hl/api/gattc_task.h
+    ble_lib/ip/ble/hl/api/gattm_task.h
+    ble_lib/ip/ble/hl/api/l2cc_task.h
+    ble_lib/ip/ble/hl/api/prf_types.h
+    ble_lib/ip/ble/hl/api/rwble_hl_error.h
+    ble_lib/ip/ble/hl/inc/attm.h
+    ble_lib/ip/ble/hl/inc/gapc.h
+    ble_lib/ip/ble/hl/inc/gapm.h
+    ble_lib/ip/ble/hl/inc/gattc.h
+    ble_lib/ip/ble/hl/inc/gattm.h
+    ble_lib/ip/ble/hl/inc/l2cc.h
+    ble_lib/ip/ble/hl/inc/l2cc_pdu.h
+    ble_lib/ip/ble/hl/inc/l2cm.h
+    ble_lib/ip/ble/hl/inc/prf.h
+    ble_lib/ip/ble/hl/inc/prf_utils.h
+    ble_lib/ip/ble/hl/inc/rwble_hl.h
+    ble_lib/ip/ble/hl/inc/rwble_hl_config.h
+    ble_lib/ip/ble/hl/inc/smpc.h
+    ble_lib/ip/ble/hl/src/gap/gapc/gapc_int.h
+    ble_lib/ip/ble/hl/src/gap/gapc/gapc_sig.h
+    ble_lib/ip/ble/hl/src/gap/gapm/gapm_int.h
+    ble_lib/ip/ble/hl/src/gap/gapm/gapm_util.h
+    ble_lib/ip/ble/hl/src/gap/smp_common.h
+    ble_lib/ip/ble/hl/src/gap/smpc/smpc_api.h
+    ble_lib/ip/ble/hl/src/gap/smpc/smpc_crypto.h
+    ble_lib/ip/ble/hl/src/gap/smpc/smpc_int.h
+    ble_lib/ip/ble/hl/src/gap/smpc/smpc_util.h
+    ble_lib/ip/ble/hl/src/gap/smpm/smpm_api.h
+    ble_lib/ip/ble/hl/src/gatt/attc/attc.h
+    ble_lib/ip/ble/hl/src/gatt/attm/attm_db.h
+    ble_lib/ip/ble/hl/src/gatt/atts/atts.h
+    ble_lib/ip/ble/hl/src/gatt/gatt.h
+    ble_lib/ip/ble/hl/src/gatt/gattc/gattc_int.h
+    ble_lib/ip/ble/hl/src/gatt/gattm/gattm_int.h
+    ble_lib/ip/ble/hl/src/l2c/l2cc/l2cc_int.h
+    ble_lib/ip/ble/hl/src/l2c/l2cc/l2cc_lecb.h
+    ble_lib/ip/ble/hl/src/l2c/l2cc/l2cc_pdu_int.h
+    ble_lib/ip/ble/hl/src/l2c/l2cc/l2cc_sig.h
+    ble_lib/ip/ble/hl/src/l2c/l2cm/l2cm_int.h
+    ble_lib/ip/ble/ll/src/em/em_buf.h
+    ble_lib/ip/ble/ll/src/em/em_map_ble.h
+    ble_lib/ip/ble/ll/src/llc/llc_ch_asses.h
+    ble_lib/ip/ble/ll/src/llc/llc_llcp.h
+    ble_lib/ip/ble/ll/src/llc/llc_task.h
+    ble_lib/ip/ble/ll/src/llc/llc_util.h
+    ble_lib/ip/ble/ll/src/llc/llcontrl.h
+    ble_lib/ip/ble/ll/src/lld/lld.h
+    ble_lib/ip/ble/ll/src/lld/lld_evt.h
+    ble_lib/ip/ble/ll/src/lld/lld_pdu.h
+    ble_lib/ip/ble/ll/src/lld/lld_sleep.h
+    ble_lib/ip/ble/ll/src/lld/lld_util.h
+    ble_lib/ip/ble/ll/src/lld/lld_wlcoex.h
+    ble_lib/ip/ble/ll/src/llm/llm.h
+    ble_lib/ip/ble/ll/src/llm/llm_task.h
+    ble_lib/ip/ble/ll/src/llm/llm_util.h
+    ble_lib/ip/ble/ll/src/rwble/rwble.h
+    ble_lib/ip/ble/ll/src/rwble/rwble_config.h
+    ble_lib/ip/ea/api/ea.h
+    ble_lib/ip/em/api/em_map.h
+    ble_lib/ip/hci/api/hci.h
+    ble_lib/ip/hci/src/hci_int.h
+    ble_lib/modules/h4tl/api/h4tl.h
+    ble_lib/modules/ke/api/kernel.h
+    ble_lib/modules/ke/api/kernel_config.h
+    ble_lib/modules/ke/api/kernel_event.h
+    ble_lib/modules/ke/api/kernel_mem.h
+    ble_lib/modules/ke/api/kernel_msg.h
+    ble_lib/modules/ke/api/kernel_task.h
+    ble_lib/modules/ke/api/kernel_timer.h
+    ble_lib/modules/ke/src/kernel_env.h
+    ble_lib/modules/ke/src/kernel_queue.h
+    ble_pub/ip/ble/hl/inc/rwprf_config.h
+    ble_pub/ip/ble/profiles/comm/api/comm.h
+    ble_pub/ip/ble/profiles/comm/api/comm_pub.h
+    ble_pub/ip/ble/profiles/comm/api/comm_task.h
+    ble_pub/ip/ble/profiles/sdp/api/sdp_service.h
+    ble_pub/ip/ble/profiles/sdp/api/sdp_service_task.h
+    ble_pub/modules/app/api/app_comm.h
+    ble_pub/modules/app/api/app_sdp.h
+    ble_pub/modules/app/api/app_sec.h
+    ble_pub/modules/app/api/app_task.h
+    ble_pub/modules/app/api/application.h
+    ble_pub/modules/app/api/rwapp_config.h
+    ble_pub/modules/common/api/RomCallFlash.h
+    ble_pub/modules/common/api/common_bt.h
+    ble_pub/modules/common/api/common_endian.h
+    ble_pub/modules/common/api/common_error.h
+    ble_pub/modules/common/api/common_hci.h
+    ble_pub/modules/common/api/common_list.h
+    ble_pub/modules/common/api/common_llcp.h
+    ble_pub/modules/common/api/common_lmp.h
+    ble_pub/modules/common/api/common_math.h
+    ble_pub/modules/common/api/common_utils.h
+    ble_pub/modules/common/api/common_version.h
+    ble_pub/modules/dbg/api/dbg.h
+    ble_pub/modules/dbg/api/dbg_mwsgen.h
+    ble_pub/modules/dbg/api/dbg_swdiag.h
+    ble_pub/modules/dbg/api/dbg_task.h
+    ble_pub/modules/ecc_p256/api/ecc_p256.h
+    ble_pub/modules/rf/api/ble_rf.h
+    ble_pub/modules/rwip/api/rwip.h
+    ble_pub/modules/rwip/api/rwip_config.h
+    ble_pub/modules/rwip/api/rwip_task.h
+    ble_pub/plf/refip/src/arch/BK3435_reg.h
+    ble_pub/plf/refip/src/arch/architect.h
+    ble_pub/plf/refip/src/arch/boot/boot.h
+    ble_pub/plf/refip/src/arch/compiler/ble_compiler.h
+    ble_pub/plf/refip/src/arch/ll/ll.h
+    ble_pub/plf/refip/src/arch/plf.h
+    ble_pub/plf/refip/src/bim/bim_app.h
+    ble_pub/plf/refip/src/bim/bim_com.h
+    ble_pub/plf/refip/src/bim/bim_intc.h
+    ble_pub/plf/refip/src/bim/bim_uart.h
+    ble_pub/plf/refip/src/bim/bim_updataImage.h
+    ble_pub/plf/refip/src/bim/boot_bim.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_assert_mgr.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_ble_em_cs.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_ble_em_ral.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_ble_em_rx_audio_buffer.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_ble_em_rx_buffer.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_ble_em_rx_desc.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_ble_em_tx_audio_buffer.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_ble_em_tx_buffer_cntl.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_ble_em_tx_buffer_data.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_ble_em_tx_desc.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_ble_em_wpb.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_ble_em_wpv.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_blecore.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_common_em_et.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_intc.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_modem.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_ripple.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_timer.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/_reg_uart.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_assert_mgr.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_ble_em_cs.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_ble_em_ral.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_ble_em_rx_audio_buffer.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_ble_em_rx_buffer.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_ble_em_rx_desc.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_ble_em_tx_audio_buffer.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_ble_em_tx_buffer_cntl.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_ble_em_tx_buffer_data.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_ble_em_tx_desc.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_ble_em_wpb.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_ble_em_wpv.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_blecore.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_common_em_et.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_intc.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_timer.h
+    ble_pub/plf/refip/src/build/ble_full/reg/fw/reg_uart.h
+    ble_pub/plf/refip/src/driver/ble_icu/ble_icu.h
+    ble_pub/plf/refip/src/driver/ble_icu/driver_sys_ctrl.h
+    ble_pub/plf/refip/src/driver/reg/ble_reg_access.h
+    ble_pub/plf/refip/src/driver/uart/uart.h
+
+
+
+    ble.c
+    ble_pub/ip/ble/hl/src/prf/prf.c
+    ble_pub/ip/ble/profiles/comm/src/comm.c
+    ble_pub/ip/ble/profiles/comm/src/comm_task.c
+    ble_pub/ip/ble/profiles/sdp/src/sdp_service.c
+    ble_pub/ip/ble/profiles/sdp/src/sdp_service_task.c
+    ble_pub/modules/app/src/app_ble.c
+    ble_pub/modules/app/src/app_comm.c
+    ble_pub/modules/app/src/app_sdp.c
+    ble_pub/modules/app/src/app_sec.c
+    ble_pub/modules/app/src/app_task.c
+    ble_pub/modules/common/src/RomCallFlash.c
+    ble_pub/modules/common/src/common_list.c
+    ble_pub/modules/common/src/common_utils.c
+    ble_pub/modules/dbg/src/dbg.c
+    ble_pub/modules/dbg/src/dbg_mwsgen.c
+    ble_pub/modules/dbg/src/dbg_swdiag.c
+    ble_pub/modules/dbg/src/dbg_task.c
+    ble_pub/modules/ecc_p256/src/ecc_p256.c
+    ble_pub/modules/rf/src/ble_rf_xvr.c
+    ble_pub/modules/rwip/src/rwip.c
+    ble_pub/plf/refip/src/bim/bim_app.c
+    ble_pub/plf/refip/src/bim/bim_com.c
+    ble_pub/plf/refip/src/bim/bim_intc.c
+    ble_pub/plf/refip/src/bim/bim_uart.c
+    ble_pub/plf/refip/src/bim/bim_updataImage.c
+    ble_pub/plf/refip/src/driver/ble_icu/ble_icu.c
+    ble_pub/plf/refip/src/driver/uart/uart.c
+
+)
+
+
+
+
+target_compile_options(beken378_driver_ble PRIVATE -mthumb)
+
+
+
+
+target_link_libraries(beken378_driver_ble
+    PUBLIC
+    beken378_common
+    beken378_driver_include
+)
+
+
+# target_compile_features(beken378_driver_ble PUBLIC c_std_99)
+set_target_properties(beken378_driver_ble PROPERTIES C_STANDARD 99)
+
+
+
+
+target_include_directories(beken378_driver_ble
+
+
+    PUBLIC SYSTEM
+    .
+
+
+
+
+    PRIVATE SYSTEM
+    ble_pub/modules/rwip/api
+    ble_lib/ip/ble/ll/src/rwble
+    ble_lib/ip/ble/hl/inc
+    ble_lib/ip/ble/hl/api
+
+
+)
+
+
+
+
+

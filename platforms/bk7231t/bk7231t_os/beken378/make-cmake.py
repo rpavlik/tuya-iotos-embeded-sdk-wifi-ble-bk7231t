@@ -25,6 +25,7 @@ except:
     HAVE_CMAKE_FORMAT = False
 
 BEKEN378_DIR = Path(__file__).resolve().parent
+PARENT_DIR = BEKEN378_DIR.parent
 
 
 class Module:
@@ -57,12 +58,11 @@ class Module:
 
     @property
     def relative_path(self) -> Path:
-        return self.path.relative_to(BEKEN378_DIR)
+        return self.path.relative_to(PARENT_DIR)
 
     @property
     def name(self):
-        parts = ["beken378"] + list(self.relative_path.parts)
-        return "_".join(parts)
+        return "_".join(self.relative_path.parts)
 
     @property
     def arm(self) -> bool:
@@ -117,6 +117,13 @@ class Module:
 
         if public_includes:
             data["public_includes"] = public_includes
+
+        public_libs = []
+        if (self.path.parent / "include").is_dir():
+            public_libs.append(self.name.replace(self.path.name, "include"))
+
+        if public_libs:
+            data["public_libs"] = public_libs
 
         if self.arm:
             data["arm"] = True
@@ -175,9 +182,8 @@ class CMaker:
 
     def run(self):
         self.modules = [
-            Module(self.root / "app", recurse=False),
             Module(self.root / "common"),
-            Module(self.root / "driver", recurse=False),
+            Module(self.root / "ip"),
             Module(self.root / "os", recurse=False),
             Module(
                 self.root / "os" / "FreeRTOSv9.0.0",
@@ -194,7 +200,6 @@ class CMaker:
                     / "portasm.s"
                 ],
             ),
-            Module(self.root / "func", recurse=False),
         ]
 
         dirs_with_subdirs = (
