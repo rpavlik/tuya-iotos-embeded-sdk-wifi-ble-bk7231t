@@ -1,22 +1,10 @@
 
-
 # Copyright 2021, Ryan Pavlik <ryan.pavlik@gmail.com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-### Generated file! Edit the templates in templates,
-### specifically templates/beken378_driver_ble.cmake (custom for this directory),
-### then re-run ./make-cmake.py
-
-
-
-
-
-
-
-add_library(beken378_driver_ble STATIC
-
-
+add_library(
+    beken378_driver_ble STATIC
     ble.h
     ble_lib/ip/ahi/api/ahi.h
     ble_lib/ip/ahi/api/ahi_task.h
@@ -179,9 +167,6 @@ add_library(beken378_driver_ble STATIC
     ble_pub/plf/refip/src/driver/ble_icu/driver_sys_ctrl.h
     ble_pub/plf/refip/src/driver/reg/ble_reg_access.h
     ble_pub/plf/refip/src/driver/uart/uart.h
-
-
-
     ble.c
     ble_pub/ip/ble/hl/src/prf/prf.c
     ble_pub/ip/ble/profiles/comm/src/comm.c
@@ -209,50 +194,21 @@ add_library(beken378_driver_ble STATIC
     ble_pub/plf/refip/src/bim/bim_uart.c
     ble_pub/plf/refip/src/bim/bim_updataImage.c
     ble_pub/plf/refip/src/driver/ble_icu/ble_icu.c
-    ble_pub/plf/refip/src/driver/uart/uart.c
-
-)
-
-
-
+    ble_pub/plf/refip/src/driver/uart/uart.c)
 
 target_compile_options(beken378_driver_ble PRIVATE -mthumb)
 
+target_link_libraries(beken378_driver_ble PUBLIC beken378_common
+                                                 beken378_driver_include)
 
-
-
-target_link_libraries(beken378_driver_ble
-    PUBLIC
-    beken378_common
-    beken378_driver_include
-)
-
-
-# target_compile_features(beken378_driver_ble PUBLIC c_std_99)
 set_target_properties(beken378_driver_ble PROPERTIES C_STANDARD 99)
 
-
-
-
-target_include_directories(beken378_driver_ble
-
-
-    PUBLIC SYSTEM
-    .
-
-
-
-
-    PRIVATE SYSTEM
-    ble_pub/modules/rwip/api
-    ble_lib/ip/ble/ll/src/rwble
-    ble_lib/ip/ble/hl/inc
-    ble_lib/ip/ble/hl/api
-
-
-)
-
-
-
-
-
+target_include_directories(
+    beken378_driver_ble
+    PUBLIC SYSTEM .
+    PRIVATE
+        SYSTEM
+        ble_pub/modules/rwip/api
+        ble_lib/ip/ble/ll/src/rwble
+        ble_lib/ip/ble/hl/inc
+        ble_lib/ip/ble/hl/api)

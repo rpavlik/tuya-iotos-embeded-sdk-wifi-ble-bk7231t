@@ -2,20 +2,8 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-### Generated file! Edit the templates in templates,
-### specifically templates/CMakeLists.template.cmake (shared with all other directories),
-### or create a derived template in templates/beken378_os_FreeRTOSv9.0.0.cmake,
-### then re-run ./make-cmake.py
-
-
-
-
-
-
-
-add_library(beken378_os_FreeRTOSv9.0.0 STATIC
-
-
+add_library(
+    beken378_os_FreeRTOSv9.0.0 STATIC
     FreeRTOS/Source/include/FreeRTOS.h
     FreeRTOS/Source/include/StackMacros.h
     FreeRTOS/Source/include/croutine.h
@@ -34,9 +22,6 @@ add_library(beken378_os_FreeRTOSv9.0.0 STATIC
     common.h
     rtos.h
     rtos_error.h
-
-
-
     FreeRTOS/Source/croutine.c
     FreeRTOS/Source/event_groups.c
     FreeRTOS/Source/list.c
@@ -45,44 +30,14 @@ add_library(beken378_os_FreeRTOSv9.0.0 STATIC
     FreeRTOS/Source/queue.c
     FreeRTOS/Source/tasks.c
     FreeRTOS/Source/timers.c
-    rtos_pub.c
-
-)
-
-
-
+    rtos_pub.c)
 
 target_compile_options(beken378_os_FreeRTOSv9.0.0 PRIVATE -marm)
 
+target_link_libraries(beken378_os_FreeRTOSv9.0.0 PUBLIC beken378_common
+                                                        beken378_os_include)
 
-
-
-target_link_libraries(beken378_os_FreeRTOSv9.0.0
-    PUBLIC
-    beken378_common
-    beken378_os_include
-)
-
-
-# target_compile_features(beken378_os_FreeRTOSv9.0.0 PUBLIC c_std_99)
 set_target_properties(beken378_os_FreeRTOSv9.0.0 PROPERTIES C_STANDARD 99)
 
-
-
-
 target_include_directories(beken378_os_FreeRTOSv9.0.0
-
-
-    PUBLIC SYSTEM
-    FreeRTOS/Source/Include
-
-
-
-
-
-)
-
-
-
-
-
+                           PUBLIC SYSTEM FreeRTOS/Source/Include)

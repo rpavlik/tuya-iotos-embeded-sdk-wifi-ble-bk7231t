@@ -2,50 +2,12 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-### Generated file! Edit the templates in templates,
-### specifically templates/CMakeLists.template.cmake (shared with all other directories),
-### or create a derived template in templates/beken378_func_video_transfer.cmake,
-### then re-run ./make-cmake.py
-
-
-
-
-
-
-
-add_library(beken378_func_video_transfer STATIC
-
-
-    video_transfer.h
-
-
-
-    video_transfer.c
-
-)
-
-
-
+add_library(beken378_func_video_transfer STATIC video_transfer.h
+                                                video_transfer.c)
 
 target_compile_options(beken378_func_video_transfer PRIVATE -mthumb)
 
+target_link_libraries(beken378_func_video_transfer PUBLIC beken378_common
+                                                          beken378_func_include)
 
-
-
-target_link_libraries(beken378_func_video_transfer
-    PUBLIC
-    beken378_common
-    beken378_func_include
-)
-
-
-# target_compile_features(beken378_func_video_transfer PUBLIC c_std_99)
 set_target_properties(beken378_func_video_transfer PROPERTIES C_STANDARD 99)
-
-
-
-
-
-
-
-

@@ -2,45 +2,23 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-### Generated file! Edit the templates in templates,
-### specifically templates/beken378_common.cmake (custom for this directory),
-### then re-run ./make-cmake.py
-
-
-
-
-
-
-
-add_library(beken378_common INTERFACE
-
+add_library(
+    beken378_common
+    INTERFACE
     doubly_list.h
     fifo.h
     generic.h
     include.h
-    typedef.h
-
-)
-
-
-
-
+    typedef.h)
 
 target_link_libraries(beken378_common INTERFACE beken378_app_config)
 
-
-
-
-target_include_directories(beken378_common
-    INTERFACE SYSTEM
-
-    .
-    ../driver/common
-    ../driver/entry
-    ../ip/common
-    ../os/FreeRTOSv9.0.0/FreeRTOS/Source/portable/Keil/ARM968es
-
-)
-
-
-
+target_include_directories(
+    beken378_common
+    INTERFACE
+        SYSTEM
+        .
+        ../driver/common
+        ../driver/entry
+        ../ip/common
+        ../os/FreeRTOSv9.0.0/FreeRTOS/Source/portable/Keil/ARM968es)

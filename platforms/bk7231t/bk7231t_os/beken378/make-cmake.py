@@ -14,8 +14,10 @@ from jinja2 import Environment, FileSystemLoader
 from jinja2.utils import Markup
 
 try:
-    from cmake_format.__main__ import process_file as cf_process_file
-    from cmake_format.configuration import Configuration as CF_Configuration
+    from cmakelang.format.__main__ import process_file as cf_process_file
+    from cmakelang.configuration import Configuration as CF_Configuration
+
+    # \ cmake_format.configuration import Configuration as CF_Configuration
 
     HAVE_CMAKE_FORMAT = True
 except:
@@ -226,7 +228,13 @@ if __name__ == "__main__":
     config = None
     if HAVE_CMAKE_FORMAT:
         # config = get_default_cmake_format_config(enable_markup=False)
-        config = CF_Configuration(enable_markup=False, tab_size=4)
+        config = CF_Configuration(
+            enable_markup=False,
+            tab_size=4,
+            max_pargs_hwrap=3,
+            max_rows_cmdline=1,
+            max_prefix_chars=4,
+        )
 
     app = CMaker(config)
     app.run()

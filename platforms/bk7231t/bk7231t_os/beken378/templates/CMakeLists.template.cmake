@@ -2,13 +2,6 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-### Generated file! Edit the templates in templates,
-### specifically templates/{{template}},
-{% if assumed_custom_template_name -%}
-### or create a derived template in templates/{{assumed_custom_template_name}},
-{% endif -%}
-### then re-run ./make-cmake.py
-
 {% block whole_build %}
 {% block children %}
 {% for child in children %}
@@ -45,7 +38,6 @@ target_link_libraries({{name}}
 {% endif %})
 {% endblock %}
 {% block features %}
-# target_compile_features({{name}} PUBLIC c_std_99)
 set_target_properties({{name}} PROPERTIES C_STANDARD 99)
 {% endblock %}
 

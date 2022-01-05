@@ -2,20 +2,8 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-### Generated file! Edit the templates in templates,
-### specifically templates/CMakeLists.template.cmake (shared with all other directories),
-### or create a derived template in templates/beken378_driver_usb.cmake,
-### then re-run ./make-cmake.py
-
-
-
-
-
-
-
-add_library(beken378_driver_usb STATIC
-
-
+add_library(
+    beken378_driver_usb STATIC
     include/class/mu_8070i.h
     include/class/mu_aud.h
     include/class/mu_bot.h
@@ -111,9 +99,6 @@ add_library(beken378_driver_usb STATIC
     src/uvc/usb_video.h
     src/uvc/uvc_driver.h
     usb.h
-
-
-
     src/cd/mu_cntlr.c
     src/cd/mu_descs.c
     src/cd/mu_drc.c
@@ -146,44 +131,13 @@ add_library(beken378_driver_usb STATIC
     src/systems/none/plat_uds.c
     src/uvc/usb_uvc.c
     src/uvc/uvc_driver.c
-    usb.c
-
-)
-
-
-
+    usb.c)
 
 target_compile_options(beken378_driver_usb PRIVATE -mthumb)
 
+target_link_libraries(beken378_driver_usb PUBLIC beken378_common
+                                                 beken378_driver_include)
 
-
-
-target_link_libraries(beken378_driver_usb
-    PUBLIC
-    beken378_common
-    beken378_driver_include
-)
-
-
-# target_compile_features(beken378_driver_usb PUBLIC c_std_99)
 set_target_properties(beken378_driver_usb PROPERTIES C_STANDARD 99)
 
-
-
-
-target_include_directories(beken378_driver_usb
-
-
-    PUBLIC SYSTEM
-    include
-
-
-
-
-
-)
-
-
-
-
-
+target_include_directories(beken378_driver_usb PUBLIC SYSTEM include)
